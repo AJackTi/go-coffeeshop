@@ -29,17 +29,17 @@ services:
       - "15672:15672"
     networks:
       - coffeeshop-network
-  
+
   proxy:
     build:
       context: .
       dockerfile: ./docker/Dockerfile-proxy
     image: go-coffeeshop-proxy
     environment:
-      APP_NAME: 'proxy-service in docker'
-      GRPC_PRODUCT_HOST: 'product'
+      APP_NAME: "proxy-service in docker"
+      GRPC_PRODUCT_HOST: "product"
       GRPC_PRODUCT_PORT: 5001
-      GRPC_COUNTER_HOST: 'counter'
+      GRPC_COUNTER_HOST: "counter"
       GRPC_COUNTER_PORT: 5002
     ports:
       - 5000:5000
@@ -55,7 +55,7 @@ services:
       dockerfile: ./docker/Dockerfile-product
     image: go-coffeeshop-product
     environment:
-      APP_NAME: 'product-service in docker'
+      APP_NAME: "product-service in docker"
     ports:
       - 5001:5001
     networks:
@@ -67,7 +67,7 @@ services:
       dockerfile: ./docker/Dockerfile-counter
     image: go-coffeeshop-counter
     environment:
-      APP_NAME: 'counter-service in docker'
+      APP_NAME: "counter-service in docker"
       IN_DOCKER: "true"
       PG_URL: postgres://postgres:P@ssw0rd@postgres:5432/postgres
       PG_DSN_URL: host=postgres user=postgres password=P@ssw0rd dbname=postgres sslmode=disable
@@ -89,7 +89,7 @@ services:
       dockerfile: ./docker/Dockerfile-barista
     image: go-coffeeshop-barista
     environment:
-      APP_NAME: 'barista-service in docker'
+      APP_NAME: "barista-service in docker"
       IN_DOCKER: "true"
       PG_URL: postgres://postgres:P@ssw0rd@postgres:5432/postgres
       PG_DSN_URL: host=postgres user=postgres password=P@ssw0rd dbname=postgres sslmode=disable
@@ -108,7 +108,7 @@ services:
       dockerfile: ./docker/Dockerfile-kitchen
     image: go-coffeeshop-kitchen
     environment:
-      APP_NAME: 'kitchen-service in docker'
+      APP_NAME: "kitchen-service in docker"
       IN_DOCKER: "true"
       PG_URL: postgres://postgres:P@ssw0rd@postgres:5432/postgres
       PG_DSN_URL: host=postgres user=postgres password=P@ssw0rd dbname=postgres sslmode=disable

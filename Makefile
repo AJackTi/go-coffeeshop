@@ -39,7 +39,7 @@ docker-compose: docker-compose-stop docker-compose-start
 .PHONY: docker-compose
 
 docker-compose-start:
-	docker-compose up --build
+	docker-compose up --build -d
 .PHONY: docker-compose-start
 
 docker-compose-stop:
@@ -49,7 +49,7 @@ docker-compose-stop:
 docker-compose-core: docker-compose-core-stop docker-compose-core-start
 
 docker-compose-core-start:
-	docker-compose -f docker-compose-core.yaml up --build
+	docker-compose -f docker-compose-core.yaml up --build -d
 .PHONY: docker-compose-core-start
 
 docker-compose-core-stop:
